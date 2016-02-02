@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<struts-config>
+    
+    <form-beans>
+        <form-bean name="LoginForm" type="com.kamal.action.LoginForm"/>
+		<form-bean name="SignupForm" type="com.kamal.action.SignupForm"/>
+		<form-bean name="PostForm" type="com.kamal.action.PostForm"/> 
+		<form-bean name="ViewForm" type="com.kamal.action.ViewForm"/>
+		<form-bean name="RefreshForm" type="com.kamal.action.RefreshForm"/>
+		<form-bean name="ajaxForm" type="com.kamal.action.AjaxForm"/>
+		<form-bean name="addForm" type="com.kamal.action.AddForm"/>
+		<form-bean name="converForm" type="com.kamal.action.ConverForm"/>
+		<form-bean name="conver1Form" type="com.kamal.action.Conver1Form"/>
+		<form-bean name="showForm" type="com.kamal.action.ShowForm"/>
+		<form-bean name="addgroupForm" type="com.kamal.action.addgroupForm"/>
+		<form-bean name="addgroupfriendForm" type="com.kamal.action.addgroupfriendForm"/>
+		<form-bean name="showgroupForm" type="com.kamal.action.showgroupForm"/>
+		<form-bean name="deletegroupForm" type="com.kamal.action.deletegroupForm"/>
+		<form-bean name="uploadForm" type="com.kamal.action.uploadForm"/>
+		<form-bean name="seenForm" type="com.kamal.action.seenForm"/>
+		<form-bean name="searchForm" type="com.kamal.action.searchForm"/>
+		<form-bean name="searchForm1" type="com.kamal.action.searchForm1"/>
+		<form-bean name="searchForm2" type="com.kamal.action.searchForm2"/>
+    </form-beans>
+    
+	<global-forwards>
+		<forward name="start" path="/start.do" />
+	</global-forwards>
+    <action-mappings>
+	<action path="/start" forward="/start.jsp" />
+	    <action name="LoginForm" path="/Login" type="com.kamal.action.LoginAction" scope="session" input="/start.jsp" validate="true">
+	    	<forward name="success" path="/showDetail.jsp" redirect="true"/>
+	    </action>
+		<action name="SignupForm" path="/verify" type="com.kamal.action.SignupAction" scope="session" input="/start.jsp" validate="true">
+			<forward name="success" path="/start.jsp" redirect="true"/>
+			<forward name="failure" path="/hello.jsp" redirect="true"/>
+		</action>
+		<!--<action name="PostForm" path="/post" type="com.kamal.action.PostAction" scope="session" input="/showDetail.jsp" validate="true">
+			<forward name="success" path="/showDetail.jsp" redirect="true"/>
+			<forward name="failure" path="/hello.jsp" redirect="true"/>
+		</action>-->
+		
+
+
+		<action name="ajaxForm" path="/AjaxSubmit" input="/showDetail.jsp"
+	    type="com.kamal.action.AjaxAction" scope="session">
+		<forward name="success" path="/k1.jsp" redirect="true"/>
+		</action>
+		
+		<action name="PostForm" path="/post" input="/showDetail.jsp"
+	    type="com.kamal.action.PostAction" scope="session">
+		<forward name="success" path="/k.jsp" redirect="true"/>
+		</action>
+		
+		<action name="converForm" path="/conver" input="/showDetail.jsp"
+	    type="com.kamal.action.ConverAction" scope="session"/>
+		
+		<action name="searchForm" path="/search" input="/showDetail.jsp"
+	    type="com.kamal.action.searchAction" scope="session"/>
+		
+		<action name="searchForm1" path="/search1" input="/showDetail.jsp"
+	    type="com.kamal.action.searchAction1" scope="session"/>
+		
+		<action name="searchForm2" path="/search2" input="/showDetail.jsp"
+	    type="com.kamal.action.searchAction2" scope="session"/>
+		
+		<action name="seenForm" path="/seen" input="/showDetail.jsp"
+	    type="com.kamal.action.seenAction" scope="session"/>
+		
+		<action name="uploadForm" path="/upload" input="/showDetail.jsp"
+	    type="com.kamal.action.uploadAction" scope="session"/>
+		
+		<action name="conver1Form" path="/conver1" input="/showDetail.jsp"
+	    type="com.kamal.action.Conver1Action" scope="session">
+		<forward name="success" path="/chatbox.jsp" redirect="true"/>
+		</action>
+		
+		<action name="addForm" path="/add" input="/showDetail.jsp"
+	    type="com.kamal.action.AddAction" scope="session">
+		<forward name="success" path="/friendlist.jsp" redirect="true"/>
+		</action>
+		
+		<action name="addgroupForm" path="/addgroup" input="/showDetail.jsp"
+	    type="com.kamal.action.addgroupAction" scope="session">
+		<forward name="success" path="/addgroup.jsp" redirect="true"/>
+		</action>
+		
+		<action name="addgroupfriendForm" path="/addgroupfriend" input="/showDetail.jsp"
+	    type="com.kamal.action.addgroupfriendAction" scope="session"/>
+		
+		
+		<action name="deletegroupForm" path="/deletegroup" input="/showDetail.jsp"
+	    type="com.kamal.action.deletegroupAction" scope="session"/>
+		
+		<action name="showgroupForm" path="/showgroup" input="/showDetail.jsp"
+	    type="com.kamal.action.showgroupAction" scope="session">
+		<forward name="success" path="/chatbox1.jsp" redirect="true"/>
+        </action>
+
+		<action name="showForm" path="/showconver" input="/showDetail.jsp"
+	    type="com.kamal.action.ShowAction" scope="session">
+		<forward name="success" path="/k.jsp" redirect="true"/>
+		</action>
+           
+    </action-mappings>
+    <message-resources parameter="MessageResources"/>
+</struts-config>
